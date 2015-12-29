@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load score_tags staticfiles %}
+
+{% block title %}Osobka | {% endblock %}
+
+{% block content %}
+  <form class="message-form" action="{% url "inbox_send" %}" method="post" autocomplete="off">
+    {% csrf_token %}
+    {{ message_form.as_p }}
+    <input type="submit" value="Odeslat">
+  </form>
+
+  {% include "parts/discussion_threads.html" %}
+{% endblock %}
+
+{% block extra_body %}
+  <script src="{% static "js/app.js" %}"></script>
+{% endblock %}

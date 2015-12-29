@@ -1,0 +1,21 @@
+{% for thread in threads %}
+  {% include "parts/message.html" with message=thread %}
+  {% if not forloop.last %}<hr class="thread-divider">{% endif %}
+{% endfor %}
+
+
+<div class="pagination">
+  <span class="step-links">
+    {% if threads.has_previous %}
+      <a href="?page={{ threads.previous_page_number }}">&lt;&lt;</a>
+    {% endif %}
+
+    <span class="current">
+      | stránka {{ threads.number }} z {{ threads.paginator.num_pages }} |
+    </span>
+
+    {% if threads.has_next %}
+      <a href="?page={{ threads.next_page_number }}">&gt;&gt;</a>
+    {% endif %}
+  </span>
+</div>

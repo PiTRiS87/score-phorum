@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <table class="room-list">
+    <tbody>
+      {% for room in rooms.pinned %}
+        {% include "parts/roomlist_row.html" %}
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <hr>
+
+  <table class="room-list">
+    <tbody>
+      {% for room in rooms.not_pinned %}
+        {% include "parts/roomlist_row.html" %}
+      {% endfor %}
+    </tbody>
+  </table>
+  <hr>
+  <a href="{% url "room_new" %}">Nová místnost</a>
+{% endblock %}

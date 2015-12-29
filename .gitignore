@@ -1,0 +1,4 @@
+*.py[cod]
+/media/*
+/static/*
+local_settings.json
